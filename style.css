@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.grid {
+    display: grid;
+    max-width: 1500px;
+}
+#logo {
+    padding: 20px;
+    font-size: 2em;
+    margin-left: 30px;
+}
+.nav ul {
+    list-style-type: none;
+    /* border: solid 1px black; */
+}
+.nav li {
+    display: inline;
+    padding: 30px;
+
+}
+.nav a {
+    text-decoration: none;
+    
+}
