@@ -2,111 +2,197 @@
     margin: 0;
     padding: 0;
     color: #000;
-    width: 95%;
-    font-family: 'com4t_sans_mediumregular', monospace;
+    width: 100%;
+    min-width: 180px;
+    /* font-family: 'com4t_sans_mediumregular', monospace; */
+    /* font-family: 'arbutus_slabregular', monospace; */
+    font-family: 'architects_daughterregular', monospace;
+    box-sizing: border-box;
 }
 
-.grid {
+#grid {
     display: grid;
-    /* width: 100%; */
-    /* min-width: 300px; */
     position: relative;
     margin: auto;
     grid-gap: 3px;
-    grid-template: repeat(9, 95px) / repeat(4, minmax(90px, 500px));
-    align-content: center;
-    justify-items: left;
+    grid-template: 1fr 1fr 12fr 1fr / 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+
     /* grid-template-columns: 200px 400px 600px;
     grid-template-rows: 200px 100px repeat(3, 25%) 100px; */
-    grid-template-areas:    "header     header      header      header"
-                            "nav        nav         nav         nav"
-                            "sidebar    img-left    p-right  p-right"
-                            "sidebar    img-left    p-right  p-right"
-                            "sidebar    img-left    p-right  p-right"
-                            "sidebar    p-left      p-left   img-right"
-                            "sidebar    p-left      p-left   img-right"
-                            "sidebar    p-left      p-left   img-right"
-                            "footer     footer      footer      footer"; 
+    /* grid-template-areas:    "header header"
+                            "nav    nav"
+                            "main   main"
+                            "footer footer";   */
 }
 
 .inline {
     display: inline;
 }
 
-header {
-    grid-area: 1 / 1 / 2 / 7;
-    padding: 20px;
-    font-size: 1.3em;
-    /* margin-left: 10px; */
-    background-color: rgba(107, 164, 243, 0.1);
-    -webkit-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
-    -moz-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
-    box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
-    /* grid-area: logo; */
-    /* grid-area: nav; */
+.block {
+    display: block;
 }
 
-nav {
-    background-color: rgba(255, 228, 196, 0.35);
+header {
+    grid-area: 1 / 1 / 2 / 3;
+    padding: 15px;
+    font-size: 1.3em;
+    text-align: left;
+    background-color: rgba(107, 164, 243, 0.5);
     -webkit-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
     -moz-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
     box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
-    grid-area: 2 / 1 / 3 / 7;
-    /* justify-content: center; */
+    /* position: fixed;
+    z-index: 10; */
+}
+
+/* h1 {
+    margin-left: 100px;
+} */
+
+.nav {
+    background-color: rgba(255, 228, 196, 0.2);
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    grid-area: 2 / 1 / 3 / 3;
+    justify-self: stretch;
     padding: 20px;
 }
 
 ul {
     list-style-type: none;
-
+    text-align: center;
     /* border: solid 1px black; */
+
 }
 
 li {
     display: inline;
-    padding-right: 40px;
+    /* padding-right: 40px; */
 
 }
 
 a {
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
+
+}
+
+a:hover {
+    color: darkmagenta;
+    font-weight: 900;
+    font-size: 1.02em;
+}
+
+li:nth-child(even) {
+    padding: 0 50px;
 }
 
 main {
-    /* grid-area: 3 / 1 / 9 / 2; */
-    background-color: lightgrey;
-    /* height: 620px; */
-    display: inline;
-    grid-area: sidebar;
+    grid-area: 3 / 1 / 4 / 3;
+    /* background-color: lightgrey; */
+    display: grid;
+    grid-gap: 20px;
+    grid-template: repeat(2, 1fr) / 100px 2fr;
+    align-content: center;
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
 }
 
-/* .sidebar a {
+.sidebar {
+    box-sizing: border-box;
+    /* padding: 20px; */
+    grid-area: 1 / 1 / 3 / 2;
+
+}
+
+.sidebar li {
     display: block;
+    padding: 40px 20px 0 0;
+
+}
+
+.sidebar li:nth-child(even) {
+    padding: 200px 0;
+}
+
+.blog {
+    grid-area: 1 / 2 / 3 / 3;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    justify-items: center;
+    grid-gap: 5px;
+    background-color: rgba(255, 248, 220, 0.3);
+    -webkit-box-shadow: 2px 4px 5px 0px rgba(245, 245, 245, 1);
+    -moz-box-shadow: 2px 4px 5px 0px rgba(245, 245, 245, 1);
+    box-shadow: 2px 4px 5px 0px rgba(245, 245, 245, 1);
+}
+
+img {
+    width: auto;
+    height: 500px;
     padding: 20px;
-    
-} */
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+    box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+}
 
 .img-left {
-    grid-area: 3 / 2 / 5 / 3;
-    float: left;
-    /* width: 90px;
-    height: auto; */
+    grid-area: 1 / 1 / 2 / 2;
+
 }
 
-p.p-right {
-    /* grid-area: 3 / 4 / 6 / 7; */
-    /* float: left; */
-    color: red;
-    grid-area: p-right;
-    display: inline;
+.img-right {
+    grid-area: 2 / 3 / 3 / 4;
+
+}
+
+.blog p {
+    padding: 150px;
+    font-size: 1.7em;
+}
+
+.p-left {
+    grid-area: 2 /1 / 3 / 3;
+
+}
+
+.p-right {
+    grid-area: 1 / 2 / 2 / 4;
+
 }
 
 footer {
     background-color: aliceblue;
-    grid-area: 9 / 1 / 10 / 7;
-    align-content: end;
+    grid-area: 4 / 1 / 5 / 3;
     padding: 20px;
-    grid-area: footer;
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
+    box-shadow: 4px 5px 5px 0px rgba(232, 232, 232, 1);
 }
 
+@media only screen and (max-width: 200px) {
+    li {
+        padding: 0px;
+    }
+
+    .blog p {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    img {
+        width: auto;
+        height: 100px;
+        padding: 20px;
+        -webkit-box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+        -moz-box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+        box-shadow: 2px 2px 2px 0px rgba(232, 232, 232, 1);
+    }
+    .sidebar li:nth-child(even) {
+        padding: 20px 0;
+    }
+}
